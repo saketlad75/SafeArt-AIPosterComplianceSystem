@@ -1,0 +1,30 @@
+{
+  "name": "@safeart/backend",
+  "version": "0.1.0",
+  "description": "Backend Lambda functions and infrastructure",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "test": "jest",
+    "deploy": "cd ../../infrastructure && cdk deploy",
+    "test:local:job-creator": "node dist/test/job-creator-test.js",
+    "test:local:worker": "node dist/test/worker-test.js"
+  },
+  "dependencies": {
+    "@safeart/shared": "*",
+    "@aws-sdk/client-dynamodb": "^3.490.0",
+    "@aws-sdk/client-s3": "^3.490.0",
+    "@aws-sdk/client-sqs": "^3.490.0",
+    "@aws-sdk/lib-dynamodb": "^3.490.0",
+    "@aws-sdk/s3-request-presigner": "^3.490.0",
+    "@types/aws-lambda": "^8.10.130"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/uuid": "^9.0.6",
+    "typescript": "^5.3.3",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.11"
+  }
+}
+

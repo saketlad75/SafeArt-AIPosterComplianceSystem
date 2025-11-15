@@ -1,0 +1,27 @@
+{
+  "name": "safeart",
+  "version": "0.1.0",
+  "description": "Poster compliance checking system",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces",
+    "clean": "npm run clean --workspaces && rm -rf node_modules",
+    "test:local": "npm run build && npm run test:local:job-creator",
+    "test:local:job-creator": "cd packages/backend && node dist/test/job-creator-test.js",
+    "test:local:worker": "cd packages/backend && node dist/test/worker-test.js",
+    "local:setup": "bash scripts/setup-localstack.sh"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+
